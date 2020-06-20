@@ -12,7 +12,7 @@
  * ╠═══════════════════════════════════════════════════════════════════════════╣
  * ║                        by Samuel 'teer' Neal-Blim                         ║
  * ║                                                                           ║
- * ║                         Site: prog.nealblim.com                           ║
+ * ║                         Site: code.nealblim.com                           ║
  * ║                         Git:  github.com/snealbli                         ║
  * ║                    JSfiddle:  jsfiddle.net/user/teeer                     ║
  * ╚═══════════════════════════════════════════════════════════════════════════╝
