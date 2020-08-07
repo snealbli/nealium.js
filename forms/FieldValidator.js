@@ -1,29 +1,48 @@
 /* ╔══════════════════════════════════════╦═════════════════════════╦══════════╗
- * ║ FieldValidator.js                    ║ Created:    5 Jun. 2020 ║ v1.0.0.0 ║
- * ║ (part of nealium.js)                 ║ Last mod.: 20 Jun. 2020 ╚══════════╣
+ * ║ FieldValidator.js                    ║ Created:    5 Jun. 2020 ║ v1.0.0.9 ║
+ * ║                                      ║ Last mod.: 24 Jul. 2020 ╚══════════╣
  * ╠══════════════════════════════════════╩════════════════════════════════════╣
+ * ║ Description:                                                              ║
  * ║ Used for dynamically validating user input in form fields.                ║
  * ║ Can tell the user which condition(s) their input satisfies, and each that ║ 
  * ║ it still does not, which each keystroke.                                  ║
+ * ╠═══════════════════════════════════════════════════════════════════════════╣ 
+ * ║ File(s):                                                                  ║
+ * ║ FieldValidator.js                                                         ║
  * ╠═══════════════════════════════════════════════════════════════════════════╣
- * ║ For the latest version of this, to report a bug, or to contribute, please ║ 
+ * ║ For the latest version of field.js, to report a bug, or to contribute,    ║ 
  * ║ visit:     github.com/snealbli/nealium.js                                 ║
  * ║    or:     code.nealblim.com/nealium.js                                   ║
  * ╠═══════════════════════════════════════════════════════════════════════════╣
- * ║                        by Samuel 'teer' Neal-Blim                         ║
+ * ║                         by Samuel "teer" Neal-Blim                        ║
  * ║                                                                           ║
- * ║                         Site: code.nealblim.com                           ║
- * ║                         Git:  github.com/snealbli                         ║
- * ║                    JSfiddle:  jsfiddle.net/user/teeer                     ║
+ * ║                          Site: nealblim.com                               ║
+ * ║                                code.nealblim.com                          ║ 
+ * ║                         Git:   github.com/snealbli                        ║
+ * ║                     JSfiddle:  jsfiddle.net/user/teeer                    ║
+ * ╠═══════════════════════════════════════════════════════════════════════════╣
+ * ║ Copyright (C) 2020  Samuel Neal-Blim                                      ║
+ * ║                                                                           ║
+ * ║ This program is free software: you can redistribute it and/or modify it   ║
+ * ║ under the terms of the GNU General Public License as published by the     ║
+ * ║ Free Software Foundation, either version 3 of the License, or (at your    ║
+ * ║  option) any later version.                                               ║
+ * ║                                                                           ║
+ * ║ This program is distributed in the hope that it will be useful, but       ║
+ * ║ WITHOUT ANY WARRANTY; without even the implied warranty of                ║
+ * ║ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General ║
+ * ║ Public License for more details.                                          ║
+ * ║                                                                           ║
+ * ║ You should have received a copy of the GNU General Public License along   ║
+ * ║ with this program.  If not, see https://www.gnu.org/licenses/gpl-3.0.html.║
  * ╚═══════════════════════════════════════════════════════════════════════════╝
  */
-
 /**
  * @class FieldValidator: dynamically validates a user's input into a form field 
  * against regular expression(s) mapped to their human-readable text 
  * descriptors, and notifies them of which condition(s) their input satisfies.
  */
-export class FieldValidator {
+export default class FieldValidator {
   /**
    * Creates a Field
    */
@@ -72,7 +91,7 @@ export class FieldValidator {
   /**
    * @param end, inclusive
    */
-  verify(query) {
+  validate(query) {
     if (typeof query === 'undefined' || typeof query !== 'string') {
       return null;
     }
@@ -101,7 +120,7 @@ export class FieldValidator {
     $(input_selectors).on({
       input: (e) => {
         if (e.target.value.length > 0) {
-          verify_callback(this.verify(e.target.value));
+          verify_callback(this.validate(e.target.value));
         }
       }
     });
